@@ -403,7 +403,7 @@ class Network:
     def __getstate__(self) -> dict:
         """Pickle export."""
         state = dict()
-        state["version"]            = 5
+        state["version"]            = 4
         state["name"]               = self.name
         state["static_kwargs"]      = dict(self.static_kwargs)
         state["components"]         = dict(self.components)
@@ -424,7 +424,7 @@ class Network:
             state = handler(state)
 
         # Get basic fields.
-        assert state["version"] in [2, 3, 4, 5]
+        assert state["version"] in [2, 3, 4]
         name = state["name"]
         static_kwargs = state["static_kwargs"]
         build_module_src = state["build_module_src"]
